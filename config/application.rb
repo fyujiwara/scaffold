@@ -34,5 +34,20 @@ module Scaffold
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # NOTE: Work around
+    # failed while executing lib/tasks/auto_generate_diagram.rake:3
+    #
+    # Generating Entity-Relationship Diagram for n models...
+    # rails aborted!
+    # NoMethodError: undefined method `parent' for MessageApp::Application:Class
+    #
+    # RailsERD::Domain#name
+    # def name
+    #   defined? Rails and Rails.application and Rails.application.class.parent.name
+    # end
+    class << self
+      alias parent module_parent
+    end
   end
 end

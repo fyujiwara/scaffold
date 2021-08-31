@@ -49,6 +49,11 @@ group :development do
   gem 'spring'
 
   gem 'spring-commands-rspec'
+
+  gem 'rails-erd'
+
+  gem 'annotate'
+
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
